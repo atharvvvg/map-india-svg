@@ -16,3 +16,38 @@ document.querySelectorAll(".allPaths").forEach(e=>{
         document.getElementById("name").style.opacity=0
     })
 })
+
+document.addEventListener('DOMContentLoaded', function () {
+    const stateSearchInput = document.getElementById('stateSearch');
+    const stateList = document.getElementById('stateList');
+    const allPaths = document.querySelectorAll('.allPaths');
+  
+    stateSearchInput.addEventListener('input', function () {
+      const searchText = stateSearchInput.value.toLowerCase();
+  
+      stateList.innerHTML = '';
+  
+      allPaths.forEach(path => {
+        const stateName = path.getAttribute('name').toLowerCase();
+  
+        if (stateName.includes(searchText)) {
+          path.classList.add('highlight');
+  
+          const listItem = document.createElement('li');
+          listItem.textContent = path.getAttribute('name');
+          stateList.appendChild(listItem);
+        } else {
+          path.classList.remove('highlight');
+        }
+      });
+    });
+  
+    document.body.addEventListener('click', function (event) {
+      if (!event.target.closest('#stateSearch')) {
+        stateSearchInput.value = ''; 
+        stateList.innerHTML = '';  
+        allPaths.forEach(path => path.classList.remove('highlight'));
+      }
+    });
+  });
+  

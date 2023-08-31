@@ -13,9 +13,17 @@
         <p id="namem">Name</p>
     </div>
 
-    <div id="data">
-        <p id="datam">Data</p>
+    <div id="parent">
+        <div id="data">
+            <p id="datam">Data</p>
+        </div>
+        
+        <div class="searchbox">
+            <input type="text" id="stateSearch" placeholder="Search for a state">
+            <ul id="stateList"></ul>
+        </div>
     </div>
+    
 
     <section>
         <?xml version="1.0"?>
@@ -106,6 +114,9 @@
             </g>
            </svg>
     </section>
+
+    
+    
 
     <script src="script.js"></script>
 </body>
